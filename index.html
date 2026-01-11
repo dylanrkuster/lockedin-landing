@@ -1227,6 +1227,12 @@
       background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
       transform: translateX(-100%);
       transition: transform 0.5s ease;
+      z-index: 0;
+    }
+
+    .waitlist-btn .btn-text {
+      position: relative;
+      z-index: 1;
     }
 
     .waitlist-btn:hover:not(:disabled)::before {
@@ -1254,6 +1260,7 @@
     }
 
     .waitlist-btn .spinner {
+      display: inline-block;
       width: 18px;
       height: 18px;
       border: 2px solid transparent;
