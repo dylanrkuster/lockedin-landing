@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LOCKEDIN - Earn Screen Time</title>
-  <meta name="description" content="Earn your screen time. One workout at a time. LOCKEDIN blocks your brain rot apps until you've earned the right to use them.">
+  <meta name="description" content="Screen time is a balance. Earn it through movement, spend it on apps. When you hit zero, you're blocked until you move.">
   <meta name="theme-color" content="#000000">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" href="icon.png">
@@ -48,7 +48,6 @@
       overflow-x: hidden;
     }
 
-    /* Utility */
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -62,24 +61,7 @@
       color: var(--text-tertiary);
       text-transform: uppercase;
       margin-bottom: 16px;
-      position: relative;
       display: inline-block;
-    }
-
-    .section-label::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 0;
-      height: 1px;
-      background: linear-gradient(90deg, var(--medium), transparent);
-      transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .animate-on-scroll.visible .section-label::before,
-    .problem-content.visible .section-label::before {
-      width: 100%;
     }
 
     /* Animations */
@@ -94,24 +76,8 @@
     }
 
     @keyframes fade-in-up {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes count-up {
-      from { opacity: 0; transform: scale(0.8); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    @keyframes shimmer {
-      0% { transform: translateX(-100%) rotate(15deg); }
-      100% { transform: translateX(200%) rotate(15deg); }
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes gradient-shift {
@@ -119,27 +85,9 @@
       50% { opacity: 0.7; transform: scale(1.1) translateY(-20px); }
     }
 
-    @keyframes bar-fill {
-      from { transform: scaleY(0); }
-      to { transform: scaleY(1); }
-    }
-
-    @keyframes border-glow {
-      0%, 100% { box-shadow: 0 0 0 0 transparent; }
-      50% { box-shadow: 0 0 20px 2px var(--glow-color, var(--medium)); }
-    }
-
     @keyframes text-reveal {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-        filter: blur(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
-      }
+      from { opacity: 0; transform: translateY(20px); filter: blur(10px); }
+      to { opacity: 1; transform: translateY(0); filter: blur(0); }
     }
 
     @keyframes slide-in-left {
@@ -148,14 +96,8 @@
     }
 
     @keyframes phone-entrance {
-      from {
-        opacity: 0;
-        transform: translateY(40px) scale(0.95);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
+      from { opacity: 0; transform: translateY(40px) scale(0.95); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
     }
 
     .animate-on-scroll {
@@ -169,17 +111,6 @@
       opacity: 1;
       transform: translateY(0);
     }
-
-    /* Staggered animations for grid children */
-    .steps-grid .animate-on-scroll:nth-child(1) { transition-delay: 0ms; }
-    .steps-grid .animate-on-scroll:nth-child(2) { transition-delay: 100ms; }
-    .steps-grid .animate-on-scroll:nth-child(3) { transition-delay: 200ms; }
-    .steps-grid .animate-on-scroll:nth-child(4) { transition-delay: 300ms; }
-
-    .difficulty-grid .animate-on-scroll:nth-child(1) { transition-delay: 0ms; }
-    .difficulty-grid .animate-on-scroll:nth-child(2) { transition-delay: 100ms; }
-    .difficulty-grid .animate-on-scroll:nth-child(3) { transition-delay: 200ms; }
-    .difficulty-grid .animate-on-scroll:nth-child(4) { transition-delay: 300ms; }
 
     /* Header */
     header {
@@ -221,7 +152,7 @@
     .logo-bar {
       width: 4px;
       height: 18px;
-      transition: transform 0.3s ease, opacity 0.3s ease;
+      transition: transform 0.3s ease;
     }
 
     .logo:hover .logo-bar:nth-child(1) { transform: scaleY(0.6); }
@@ -241,22 +172,6 @@
       font-size: 13px;
       font-weight: 500;
       transition: color 0.2s;
-      position: relative;
-    }
-
-    nav a:not(.nav-cta)::after {
-      content: "";
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background: var(--medium);
-      transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    nav a:not(.nav-cta):hover::after {
-      width: 100%;
     }
 
     nav a:hover {
@@ -326,10 +241,6 @@
       animation: slide-in-left 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
     }
 
-    .hero-eyebrow::before {
-      display: none;
-    }
-
     .hero h1 {
       font-size: clamp(40px, 5vw, 64px);
       font-weight: 800;
@@ -346,17 +257,11 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
       opacity: 0;
-      animation: text-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards,
-                 text-shimmer 8s ease-in-out infinite 1.5s;
+      animation: text-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
-    @keyframes text-shimmer {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
-
-    .hero h1 span:nth-child(1) { animation-delay: 0.3s, 1.5s; }
-    .hero h1 span:nth-child(2) { animation-delay: 0.45s, 1.65s; }
+    .hero h1 span:nth-child(1) { animation-delay: 0.3s; }
+    .hero h1 span:nth-child(2) { animation-delay: 0.45s; }
 
     .hero-description {
       font-size: 18px;
@@ -443,23 +348,6 @@
       position: relative;
     }
 
-    /* Shimmer effect on phone screens */
-    .phone-screen::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        105deg,
-        transparent 40%,
-        rgba(255, 255, 255, 0.03) 45%,
-        rgba(255, 255, 255, 0.06) 50%,
-        rgba(255, 255, 255, 0.03) 55%,
-        transparent 60%
-      );
-      animation: shimmer 8s ease-in-out infinite;
-      pointer-events: none;
-    }
-
     .phone-screen img {
       width: 100%;
       height: 100%;
@@ -478,19 +366,25 @@
       z-index: 10;
     }
 
-    /* Problem Section */
-    .problem {
+    .waitlist-note {
+      margin-top: 16px;
+      font-size: 12px;
+      color: var(--text-tertiary);
+    }
+
+    /* Difference Section */
+    .difference {
       padding: 160px 0;
       position: relative;
     }
 
-    .problem-content {
+    .difference-content {
       max-width: 800px;
       margin: 0 auto;
       text-align: center;
     }
 
-    .problem h2 {
+    .difference h2 {
       font-size: clamp(32px, 4vw, 48px);
       font-weight: 800;
       line-height: 1.2;
@@ -498,30 +392,19 @@
       letter-spacing: -1px;
     }
 
-    .problem-stat {
-      display: inline-flex;
-      align-items: baseline;
-      gap: 8px;
-      margin-bottom: 32px;
-    }
-
-    .problem-stat .number {
-      font-family: 'SF Mono', SFMono-Regular, Menlo, monospace;
-      font-size: 72px;
-      font-weight: 700;
-      color: var(--hard);
-      animation: count-up 1s ease-out;
-    }
-
-    .problem-stat .unit {
-      font-size: 24px;
-      color: var(--text-secondary);
-    }
-
-    .problem p {
+    .difference p {
       font-size: 18px;
       color: var(--text-secondary);
       line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .difference-highlight {
+      display: inline-block;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--medium);
+      margin-top: 16px;
     }
 
     /* How It Works */
@@ -554,7 +437,7 @@
 
     .steps-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 32px;
     }
 
@@ -593,12 +476,10 @@
     .step-card:nth-child(1)::before { background: var(--easy); }
     .step-card:nth-child(2)::before { background: var(--medium); }
     .step-card:nth-child(3)::before { background: var(--hard); }
-    .step-card:nth-child(4)::before { background: var(--extreme); }
 
     .step-card:nth-child(1):hover { box-shadow: 0 10px 40px -10px rgba(34, 197, 94, 0.2); }
     .step-card:nth-child(2):hover { box-shadow: 0 10px 40px -10px rgba(234, 179, 8, 0.2); }
     .step-card:nth-child(3):hover { box-shadow: 0 10px 40px -10px rgba(249, 115, 22, 0.2); }
-    .step-card:nth-child(4):hover { box-shadow: 0 10px 40px -10px rgba(220, 38, 38, 0.2); }
 
     .step-number {
       font-family: 'SF Mono', SFMono-Regular, Menlo, monospace;
@@ -606,13 +487,11 @@
       font-weight: 600;
       color: var(--text-tertiary);
       margin-bottom: 24px;
-      transition: color 0.3s ease;
     }
 
     .step-card:nth-child(1):hover .step-number { color: var(--easy); }
     .step-card:nth-child(2):hover .step-number { color: var(--medium); }
     .step-card:nth-child(3):hover .step-number { color: var(--hard); }
-    .step-card:nth-child(4):hover .step-number { color: var(--extreme); }
 
     .step-card h3 {
       font-size: 18px;
@@ -626,159 +505,90 @@
       line-height: 1.6;
     }
 
-    /* Features */
-    .features {
+    /* Earn Section */
+    .earn {
       padding: 160px 0;
     }
 
-    .feature {
+    .earn-content {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 80px;
       align-items: center;
-      margin-bottom: 160px;
     }
 
-    .feature:last-child {
-      margin-bottom: 0;
+    .earn-text h2 {
+      font-size: clamp(28px, 3.5vw, 40px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 24px;
     }
 
-    .feature:nth-child(even) {
-      direction: rtl;
+    .earn-text p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 32px;
     }
 
-    .feature:nth-child(even) > * {
-      direction: ltr;
+    .earn-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
     }
 
-    .feature-content {
-      max-width: 480px;
+    .earn-method {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
     }
 
-    .feature-icon {
+    .earn-method-icon {
       width: 48px;
       height: 48px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 24px;
+      background: var(--surface-elevated);
       border: 1px solid var(--border-subtle);
     }
 
-    .feature-icon svg {
+    .earn-method-icon svg {
       width: 24px;
       height: 24px;
+      color: var(--medium);
+    }
+
+    .earn-method-text h4 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .earn-method-text p {
+      font-size: 13px;
       color: var(--text-secondary);
+      margin: 0;
     }
 
-    .feature h3 {
-      font-size: clamp(24px, 3vw, 32px);
-      font-weight: 800;
-      margin-bottom: 16px;
-      letter-spacing: -0.5px;
-    }
-
-    .feature p {
-      font-size: 16px;
-      color: var(--text-secondary);
-      line-height: 1.7;
-      margin-bottom: 24px;
-    }
-
-    .feature-highlight {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 16px 20px;
-      background: var(--surface);
-      border-left: 2px solid var(--medium);
-      position: relative;
-      overflow: hidden;
-      transition: background 0.3s ease, border-color 0.3s ease;
-    }
-
-    .feature-highlight::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(234, 179, 8, 0.05), transparent);
-      transition: left 0.6s ease;
-    }
-
-    .feature-highlight:hover::before {
-      left: 100%;
-    }
-
-    .feature-highlight:hover {
-      background: rgba(234, 179, 8, 0.05);
-    }
-
-    .feature-highlight span {
-      font-size: 14px;
-      color: var(--text-secondary);
-      transition: color 0.3s ease;
-    }
-
-    .feature-highlight:hover span {
-      color: var(--text-primary);
-    }
-
-    .feature-highlight svg {
-      transition: transform 0.3s ease;
-    }
-
-    .feature-highlight:hover svg {
-      transform: scale(1.1);
-    }
-
-    .feature-phone {
+    .earn-phone {
       position: relative;
       display: flex;
       justify-content: center;
     }
 
-    .feature-phone .phone-glow {
+    .earn-phone .phone-glow {
       width: 300px;
       height: 300px;
     }
 
-    .feature-phone .phone-frame {
+    .earn-phone .phone-frame {
       width: 240px;
       height: 490px;
       animation: none;
-    }
-
-    /* Corner Bracket Frame */
-    .bracket-frame {
-      position: relative;
-      padding: 32px;
-    }
-
-    .bracket-frame::before,
-    .bracket-frame::after {
-      content: "";
-      position: absolute;
-      width: 40px;
-      height: 40px;
-      border: 2px solid var(--medium);
-      opacity: 0.5;
-    }
-
-    .bracket-frame::before {
-      top: 0;
-      left: 0;
-      border-right: none;
-      border-bottom: none;
-    }
-
-    .bracket-frame::after {
-      bottom: 0;
-      right: 0;
-      border-left: none;
-      border-top: none;
     }
 
     /* Difficulty Section */
@@ -844,27 +654,7 @@
       width: 4px;
       height: 20px;
       background: var(--border-subtle);
-      transform-origin: bottom;
-      transition: transform 0.3s ease;
     }
-
-    .difficulty-card:hover .bar {
-      transform: scaleY(1.2);
-    }
-
-    .bar.filled {
-      transform-origin: bottom;
-    }
-
-    /* Animate bars when card becomes visible */
-    .difficulty-card.visible .bar.filled {
-      animation: bar-fill 0.5s cubic-bezier(0.16, 1, 0.3, 1) backwards;
-    }
-
-    .difficulty-card.visible .bar:nth-child(1) { animation-delay: 0.1s; }
-    .difficulty-card.visible .bar:nth-child(2) { animation-delay: 0.2s; }
-    .difficulty-card.visible .bar:nth-child(3) { animation-delay: 0.3s; }
-    .difficulty-card.visible .bar:nth-child(4) { animation-delay: 0.4s; }
 
     .bar.filled.easy { background: var(--easy); }
     .bar.filled.medium { background: var(--medium); }
@@ -875,7 +665,7 @@
       font-size: 16px;
       font-weight: 700;
       letter-spacing: 2px;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
     }
 
     .difficulty-name.easy { color: var(--easy); }
@@ -885,15 +675,16 @@
 
     .difficulty-ratio {
       font-family: 'SF Mono', SFMono-Regular, Menlo, monospace;
-      font-size: 13px;
+      font-size: 12px;
       color: var(--text-secondary);
-      margin-bottom: 16px;
+      margin-bottom: 4px;
     }
 
     .difficulty-desc {
       font-size: 13px;
       color: var(--text-tertiary);
       font-style: italic;
+      margin-top: 16px;
     }
 
     /* Final CTA */
@@ -939,6 +730,10 @@
       padding: 20px 40px;
     }
 
+    .final-cta .waitlist-note {
+      text-align: center;
+    }
+
     /* Privacy */
     .privacy {
       padding: 120px 0;
@@ -968,7 +763,6 @@
       font-weight: 700;
       margin-top: 40px;
       margin-bottom: 12px;
-      letter-spacing: 0.5px;
     }
 
     .privacy p, .privacy ul {
@@ -989,7 +783,7 @@
     }
 
     .privacy li::before {
-      content: "—";
+      content: "-";
       position: absolute;
       left: 0;
       color: var(--text-tertiary);
@@ -1033,13 +827,11 @@
       font-size: 13px;
       color: var(--text-secondary);
       text-decoration: none;
-      transition: color 0.2s ease, transform 0.2s ease;
-      display: inline-block;
+      transition: color 0.2s ease;
     }
 
     .footer-links a:hover {
       color: var(--text-primary);
-      transform: translateY(-1px);
     }
 
     /* Mobile */
@@ -1059,34 +851,20 @@
       }
 
       .steps-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
       }
 
       .difficulty-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .feature {
+      .earn-content {
         grid-template-columns: 1fr;
         gap: 48px;
       }
 
-      .feature:nth-child(even) {
-        direction: ltr;
-      }
-
-      .feature-content {
-        max-width: 100%;
+      .earn-text {
         text-align: center;
-      }
-
-      .feature-icon {
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .feature-highlight {
-        justify-content: center;
       }
     }
 
@@ -1104,7 +882,6 @@
         padding-top: 140px;
       }
 
-      .steps-grid,
       .difficulty-grid {
         grid-template-columns: 1fr;
       }
@@ -1114,11 +891,6 @@
         height: 490px;
       }
 
-      .feature-phone .phone-frame {
-        width: 200px;
-        height: 408px;
-      }
-
       .footer-content {
         flex-direction: column;
         gap: 32px;
@@ -1126,21 +898,9 @@
       }
     }
 
-    /* Scroll animations observer will add this */
-    @media (prefers-reduced-motion: no-preference) {
-      .animate-on-scroll {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-    }
-
-    /* Reduced motion: disable all animations */
     @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
+      *, *::before, *::after {
         animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
       }
 
@@ -1153,23 +913,6 @@
         opacity: 1;
         transform: none;
         filter: none;
-      }
-    }
-
-    /* CTA Note */
-    .waitlist-note {
-      margin-top: 16px;
-      font-size: 12px;
-      color: var(--text-tertiary);
-    }
-
-    .final-cta .waitlist-note {
-      text-align: center;
-    }
-
-    @media (max-width: 1024px) {
-      .hero-text .waitlist-note {
-        text-align: center;
       }
     }
   </style>
@@ -1198,9 +941,9 @@
       </a>
       <nav>
         <a href="#how">How It Works</a>
-        <a href="#features">Features</a>
+        <a href="#difficulty">Difficulty</a>
         <a href="#privacy">Privacy</a>
-        <a href="https://testflight.apple.com/join/91g4BD8A" class="nav-cta" target="_blank" rel="noopener">Get the Beta</a>
+        <a href="https://testflight.apple.com/join/91g4BD8A" class="nav-cta" target="_blank" rel="noopener">Download</a>
       </nav>
     </div>
   </header>
@@ -1211,50 +954,49 @@
       <div class="hero-bg"></div>
       <div class="hero-content">
         <div class="hero-text">
-          <div class="hero-eyebrow">Beta Now Available on TestFlight</div>
+          <div class="hero-eyebrow">Free on iOS</div>
           <h1>
-            <span>Earn your</span>
-            <span>screen time.</span>
+            <span>Move more.</span>
+            <span>Scroll less.</span>
           </h1>
           <p class="hero-description">
-            LOCKEDIN blocks your brain rot apps until you've earned the right to use them.
-            Every minute of exercise unlocks screen time. No mercy. No excuses. Just results.
+            LOCKEDIN treats screen time like a bank account. Earn minutes by moving.
+            Spend them on apps. Hit zero and you're blocked until you move again.
           </p>
           <a href="https://testflight.apple.com/join/91g4BD8A" class="hero-cta" target="_blank" rel="noopener">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-            Download Beta
+            Download Free
           </a>
-          <p class="waitlist-note">Free on TestFlight for iOS. Limited spots available.</p>
+          <p class="waitlist-note">Available on TestFlight for iOS</p>
         </div>
         <div class="hero-phone-container">
           <div class="phone-glow"></div>
           <div class="phone-frame">
             <div class="phone-notch"></div>
             <div class="phone-screen">
-              <img src="1.png" alt="LOCKEDIN app showing 87 minutes of screen time remaining">
+              <img src="1.png" alt="LOCKEDIN app showing screen time balance">
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Problem -->
-    <section class="problem">
+    <!-- What Makes It Different -->
+    <section class="difference">
       <div class="container">
-        <div class="problem-content animate-on-scroll">
-          <p class="section-label">The Problem</p>
-          <div class="problem-stat">
-            <span class="number" data-target="4.5">0.0</span>
-            <span class="unit">hours / day</span>
-          </div>
-          <h2>That's how much the average person spends on their phone.</h2>
+        <div class="difference-content animate-on-scroll">
+          <p class="section-label">The Difference</p>
+          <h2>Screen time limits don't work because you can ignore them.</h2>
           <p>
-            You know you're wasting time. You've tried screen time limits. You've tried "mindful" apps
-            with breathing exercises. They don't work because they're too easy to dismiss.<br><br>
-            <strong style="color: var(--text-primary);">LOCKEDIN is different.</strong>
-            You can't negotiate with it. You can't snooze it.
-            When you're out of time, you're locked out. The only way back in? Move your body.
+            You've tried the built-in limits. You've tried "mindful" apps.
+            You tap through them without thinking. They fail because there's no real consequence.
           </p>
+          <p>
+            <strong style="color: var(--text-primary);">LOCKEDIN is different.</strong><br>
+            When your balance hits zero, your apps are blocked at the system level.
+            No snooze. No workarounds. The only way back in is to move your body.
+          </p>
+          <span class="difference-highlight">Movement is the only password.</span>
         </div>
       </div>
     </section>
@@ -1264,75 +1006,61 @@
       <div class="container">
         <div class="section-header animate-on-scroll">
           <p class="section-label">How It Works</p>
-          <h2>Four steps to freedom</h2>
+          <h2>Simple as 1-2-3</h2>
         </div>
         <div class="steps-grid">
           <div class="step-card animate-on-scroll">
             <div class="step-number">01</div>
-            <h3>Pick your poison</h3>
-            <p>Select the apps that steal your time. Instagram, TikTok, X. You know which ones.</p>
+            <h3>Pick apps to block</h3>
+            <p>Select the apps that waste your time. Instagram, TikTok, YouTube, games. You decide.</p>
           </div>
           <div class="step-card animate-on-scroll">
             <div class="step-number">02</div>
-            <h3>Get your balance</h3>
-            <p>You start with time in the bank based on your difficulty. Use it wisely. When you hit zero, you're locked out.</p>
+            <h3>Move to earn</h3>
+            <p>Workouts and steps both count. Any exercise tracked in Apple Health earns you screen time.</p>
           </div>
           <div class="step-card animate-on-scroll">
             <div class="step-number">03</div>
-            <h3>Workout to unlock</h3>
-            <p>Any exercise tracked in Apple Health earns screen time. Run. Lift. Cycle. Your choice.</p>
-          </div>
-          <div class="step-card animate-on-scroll">
-            <div class="step-number">04</div>
-            <h3>No way out</h3>
-            <p>No snooze. No "5 more minutes." When you're out, you're out. Get moving or stay locked.</p>
+            <h3>Use apps, spend balance</h3>
+            <p>Every minute on blocked apps costs a minute from your balance. Hit zero and you're locked out.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Features -->
-    <section class="features" id="features">
+    <!-- Earn Section -->
+    <section class="earn">
       <div class="container">
-
-        <div class="feature animate-on-scroll">
-          <div class="feature-content">
-            <p class="section-label">Hard Blocks</p>
-            <h3>Hit zero? You're done.</h3>
+        <div class="earn-content">
+          <div class="earn-text animate-on-scroll">
+            <p class="section-label">Earning</p>
+            <h2>Workouts and steps both count</h2>
             <p>
-              When your balance hits zero, LOCKEDIN activates a hard block. No snooze button.
-              No "just 5 more minutes." No workarounds. You're locked out until you earn your way back.
+              You don't need to hit the gym. Any movement tracked by Apple Health earns screen time.
+              Works with Apple Watch, Garmin, Whoop, Oura, Fitbit, and any device that syncs to Apple Health.
             </p>
-            <div class="feature-highlight">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              <span>The only escape is exercise</span>
-            </div>
-          </div>
-          <div class="feature-phone">
-            <div class="phone-glow"></div>
-            <div class="phone-frame">
-              <div class="phone-notch"></div>
-              <div class="phone-screen">
-                <img src="2.png" alt="LOCKEDIN blocked screen">
+            <div class="earn-methods">
+              <div class="earn-method">
+                <div class="earn-method-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="2"/><path d="M12 7v5m0 0l-3 7m3-7l3 7m-6-5h6"/></svg>
+                </div>
+                <div class="earn-method-text">
+                  <h4>Workouts</h4>
+                  <p>Run, lift, cycle, swim. Any workout synced to Apple Health.</p>
+                </div>
+              </div>
+              <div class="earn-method">
+                <div class="earn-method-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
+                </div>
+                <div class="earn-method-text">
+                  <h4>Steps</h4>
+                  <p>Every 1,000 steps earns screen time. Just walk.</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-
-        <div class="feature animate-on-scroll">
-          <div class="feature-content">
-            <p class="section-label">Activity Tracking</p>
-            <h3>Every minute counts</h3>
-            <p>
-              See exactly where your time goes. Every workout earned. Every minute spent scrolling.
-              A complete ledger of your digital accountability. No hiding from the numbers.
-            </p>
-            <div class="feature-highlight">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-              <span>Syncs automatically with Apple Health</span>
-            </div>
-          </div>
-          <div class="feature-phone">
+          <div class="earn-phone animate-on-scroll">
             <div class="phone-glow"></div>
             <div class="phone-frame">
               <div class="phone-notch"></div>
@@ -1342,64 +1070,15 @@
             </div>
           </div>
         </div>
-
-        <div class="feature animate-on-scroll">
-          <div class="feature-content">
-            <p class="section-label">Your Apps, Your Rules</p>
-            <h3>Block your distractions</h3>
-            <p>
-              Choose exactly which apps to lock. Block social media. Block games. Block anything that
-              steals your focus. You decide what's off-limits. LOCKEDIN enforces it.
-            </p>
-            <div class="feature-highlight">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/></svg>
-              <span>Block any app, category, or game</span>
-            </div>
-          </div>
-          <div class="feature-phone">
-            <div class="phone-glow"></div>
-            <div class="phone-frame">
-              <div class="phone-notch"></div>
-              <div class="phone-screen">
-                <img src="5.png" alt="LOCKEDIN blocked apps selection">
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="feature animate-on-scroll">
-          <div class="feature-content">
-            <p class="section-label">Widgets</p>
-            <h3>Your balance at a glance</h3>
-            <p>
-              Add LOCKEDIN widgets to your lock screen or home screen. See your remaining screen time
-              balance without opening the app. A constant reminder of where you stand. No excuses.
-            </p>
-            <div class="feature-highlight">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-              <span>Lock screen &amp; home screen widgets</span>
-            </div>
-          </div>
-          <div class="feature-phone">
-            <div class="phone-glow"></div>
-            <div class="phone-frame">
-              <div class="phone-notch"></div>
-              <div class="phone-screen">
-                <img src="widget.png" alt="LOCKEDIN widgets on lock screen and home screen">
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
     </section>
 
     <!-- Difficulty -->
-    <section class="difficulty">
+    <section class="difficulty" id="difficulty">
       <div class="container">
         <div class="section-header animate-on-scroll">
-          <p class="section-label">Difficulty Modes</p>
-          <h2>How locked in are you?</h2>
+          <p class="section-label">Difficulty</p>
+          <h2>Choose your challenge</h2>
         </div>
         <div class="difficulty-grid">
           <div class="difficulty-card animate-on-scroll">
@@ -1410,7 +1089,8 @@
               <div class="bar"></div>
             </div>
             <div class="difficulty-name easy">EASY</div>
-            <div class="difficulty-ratio">1 min → 2 min screen</div>
+            <div class="difficulty-ratio">1 min workout = 2 min screen</div>
+            <div class="difficulty-ratio">1k steps = 10 min screen</div>
             <div class="difficulty-desc">"I'm just getting started"</div>
           </div>
           <div class="difficulty-card animate-on-scroll">
@@ -1421,7 +1101,8 @@
               <div class="bar"></div>
             </div>
             <div class="difficulty-name medium">MEDIUM</div>
-            <div class="difficulty-ratio">1 min → 1 min screen</div>
+            <div class="difficulty-ratio">1 min workout = 1 min screen</div>
+            <div class="difficulty-ratio">1k steps = 5 min screen</div>
             <div class="difficulty-desc">"Fair trade"</div>
           </div>
           <div class="difficulty-card animate-on-scroll">
@@ -1432,7 +1113,8 @@
               <div class="bar"></div>
             </div>
             <div class="difficulty-name hard">HARD</div>
-            <div class="difficulty-ratio">2 min → 1 min screen</div>
+            <div class="difficulty-ratio">2 min workout = 1 min screen</div>
+            <div class="difficulty-ratio">1k steps = 3 min screen</div>
             <div class="difficulty-desc">"I'm serious about this"</div>
           </div>
           <div class="difficulty-card animate-on-scroll">
@@ -1443,7 +1125,8 @@
               <div class="bar filled extreme"></div>
             </div>
             <div class="difficulty-name extreme">EXTREME</div>
-            <div class="difficulty-ratio">3 min → 1 min screen</div>
+            <div class="difficulty-ratio">3 min workout = 1 min screen</div>
+            <div class="difficulty-ratio">1k steps = 1 min screen</div>
             <div class="difficulty-desc">"No excuses. No mercy."</div>
           </div>
         </div>
@@ -1451,20 +1134,19 @@
     </section>
 
     <!-- Final CTA -->
-    <section class="final-cta" id="download">
+    <section class="final-cta">
       <div class="final-cta-bg"></div>
       <div class="container">
         <div class="final-cta-content animate-on-scroll">
           <h2>Ready to lock in?</h2>
           <p>
-            Stop negotiating with yourself. Stop making excuses.
-            Download the beta and start earning your screen time.
+            Stop negotiating with yourself. Download LOCKEDIN and start earning your screen time.
           </p>
           <a href="https://testflight.apple.com/join/91g4BD8A" class="hero-cta" target="_blank" rel="noopener">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-            Download Beta
+            Download Free
           </a>
-          <p class="waitlist-note">Free on TestFlight for iOS. Limited spots available.</p>
+          <p class="waitlist-note">Available on TestFlight for iOS</p>
         </div>
       </div>
     </section>
@@ -1476,37 +1158,27 @@
           <p class="section-label">Legal</p>
           <h2>Privacy Policy</h2>
           <p class="privacy-intro">
-            LOCKEDIN is built with privacy as a core principle. Your data stays on your device.
-            No accounts. No tracking. No BS.
+            Your data stays on your device. No accounts. No tracking. No BS.
           </p>
 
           <h3>Data We Access</h3>
-          <p>LOCKEDIN requires access to the following on your device:</p>
+          <p>LOCKEDIN requires access to:</p>
           <ul>
-            <li><strong>Apple Health (HealthKit):</strong> We read workout duration and type to calculate earned screen time. We do not access heart rate, weight, or any other health metrics.</li>
-            <li><strong>Screen Time (FamilyControls):</strong> Required to block selected apps. This is the core functionality.</li>
+            <li><strong>Apple Health:</strong> We read workout duration and step count to calculate earned screen time.</li>
+            <li><strong>Screen Time:</strong> Required to block selected apps at the system level.</li>
           </ul>
 
           <h3>Data We Collect</h3>
-          <p>None. Zero. We do not collect, transmit, or store any of your data on external servers.</p>
+          <p>None. We do not collect, transmit, or store any of your data on external servers.</p>
           <ul>
             <li>No accounts required</li>
             <li>No analytics or tracking</li>
             <li>No advertising</li>
-            <li>No data sharing with third parties</li>
+            <li>No data sharing</li>
           </ul>
 
           <h3>Data Storage</h3>
-          <p>All app data (balance, history, blocked apps, settings) is stored locally on your device. This data never leaves your device.</p>
-
-          <h3>Data Retention</h3>
-          <p>Transaction history is retained for 7 days, then automatically deleted. Uninstalling removes all data.</p>
-
-          <h3>Third-Party Services</h3>
-          <p>LOCKEDIN does not integrate with any third-party analytics, advertising, or data collection services. The only integrations are Apple's native frameworks (HealthKit and FamilyControls).</p>
-
-          <h3>Children's Privacy</h3>
-          <p>LOCKEDIN is not designed for children under 13. The app requires user control over device Screen Time settings.</p>
+          <p>All app data is stored locally on your device and never leaves it.</p>
 
           <h3>Contact</h3>
           <p>Questions? <a href="mailto:thelockedinapp@outlook.com" style="color: var(--text-primary); text-decoration: underline;">thelockedinapp@outlook.com</a></p>
@@ -1544,13 +1216,6 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-
-          // Trigger counter animation for stats
-          const counter = entry.target.querySelector('.number[data-target]');
-          if (counter && !counter.dataset.animated) {
-            animateCounter(counter);
-            counter.dataset.animated = 'true';
-          }
         }
       });
     }, {
@@ -1562,37 +1227,10 @@
       observer.observe(el);
     });
 
-    // Animated counter function
-    function animateCounter(element) {
-      const target = parseFloat(element.dataset.target);
-      const duration = 2000;
-      const start = performance.now();
-      const startValue = 0;
-
-      function update(currentTime) {
-        const elapsed = currentTime - start;
-        const progress = Math.min(elapsed / duration, 1);
-
-        // Easing function (ease-out cubic)
-        const easeOut = 1 - Math.pow(1 - progress, 3);
-        const current = startValue + (target - startValue) * easeOut;
-
-        element.textContent = current.toFixed(1);
-
-        if (progress < 1) {
-          requestAnimationFrame(update);
-        }
-      }
-
-      requestAnimationFrame(update);
-    }
-
-    // Track beta download clicks in Google Analytics
+    // Track download clicks
     document.querySelectorAll('a.hero-cta').forEach(link => {
       link.addEventListener('click', () => {
-        gtag('event', 'beta_download', {
-          method: 'testflight'
-        });
+        gtag('event', 'download_click', { method: 'testflight' });
       });
     });
   </script>
