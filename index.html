@@ -445,6 +445,71 @@
       margin-top: 16px;
     }
 
+    /* Personal Note */
+    .personal-note {
+      padding: 80px 0;
+      background: var(--surface);
+    }
+
+    .note-content {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .note-card {
+      background: var(--bg);
+      border: 1px solid var(--border-subtle);
+      border-left: 3px solid var(--medium);
+      padding: 32px 40px;
+    }
+
+    .note-greeting {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--medium);
+      margin-bottom: 16px;
+    }
+
+    .note-card p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    .note-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .note-contact {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .note-contact a {
+      color: var(--text-primary);
+      text-decoration: none;
+      border-bottom: 1px solid var(--text-tertiary);
+      transition: border-color 0.2s ease;
+    }
+
+    .note-contact a:hover {
+      border-color: var(--medium);
+    }
+
+    .note-sign-off {
+      font-style: italic;
+      color: var(--text-tertiary) !important;
+      margin-top: 24px !important;
+    }
+
+    @media (max-width: 640px) {
+      .note-card {
+        padding: 24px;
+      }
+    }
+
     /* How It Works */
     .how-it-works {
       padding: 120px 0;
@@ -856,6 +921,20 @@
       color: var(--text-tertiary);
     }
 
+    .footer-builder {
+      margin-top: 8px;
+    }
+
+    .footer-builder a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-builder a:hover {
+      color: var(--text-primary);
+    }
+
     .footer-links {
       display: flex;
       gap: 32px;
@@ -981,7 +1060,7 @@
       <nav>
         <a href="#how">How It Works</a>
         <a href="#difficulty">Difficulty</a>
-        <a href="#privacy">Privacy</a>
+        <a href="#feedback">Get in Touch</a>
         <a href="https://testflight.apple.com/join/91g4BD8A" class="nav-cta" target="_blank" rel="noopener">Join Beta</a>
       </nav>
     </div>
@@ -993,7 +1072,7 @@
       <div class="hero-bg"></div>
       <div class="hero-content">
         <div class="hero-text">
-          <div class="hero-eyebrow">Beta · Limited Spots</div>
+          <div class="hero-eyebrow">Early Beta · Help Me Build This</div>
           <h1>
             <span>Move more.</span>
             <span>Scroll less.</span>
@@ -1004,15 +1083,15 @@
           </p>
           <a href="https://testflight.apple.com/join/91g4BD8A" class="hero-cta" target="_blank" rel="noopener">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-            Join the Beta
+            Try the Beta
           </a>
-          <p class="waitlist-note">Get early access via TestFlight · Help shape the app</p>
+          <p class="waitlist-note">Free on TestFlight · Your feedback shapes what gets built</p>
           <!-- BETA SPOTS: Update width % (spots claimed) and number (spots remaining) -->
           <div class="spots-counter">
             <div class="spots-bar">
               <div class="spots-bar-fill" style="width: 7%;"></div>
             </div>
-            <span class="spots-text"><strong>93</strong> of 100 spots left</span>
+            <span class="spots-text"><strong>93</strong> of 100 beta spots left</span>
           </div>
         </div>
         <div class="hero-phone-container">
@@ -1043,6 +1122,33 @@
             No snooze. No workarounds. The only way back in is to move your body.
           </p>
           <span class="difference-highlight">Movement is the only password.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Personal Note -->
+    <section class="personal-note" id="feedback">
+      <div class="container">
+        <div class="note-content animate-on-scroll">
+          <div class="note-card">
+            <p class="note-greeting">Hey, quick thing -</p>
+            <p>
+              I'm building this alone and I genuinely need help making it good.
+              Not in a marketing way. In a "I can't see my own blind spots" way.
+            </p>
+            <p>
+              If you try it and something feels off - confusing UI, annoying bug,
+              missing feature, whatever - just tell me. Tear it apart if you want.
+              That's how it gets better.
+            </p>
+            <p class="note-contact">
+              Easiest way to reach me: <a href="https://x.com/AchedPizza" target="_blank" rel="noopener">DM on X (@AchedPizza)</a><br>
+              Or email <a href="mailto:thelockedinapp@outlook.com">thelockedinapp@outlook.com</a> if that's more your thing.
+            </p>
+            <p class="note-sign-off">
+              - Dylan
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -1184,15 +1290,17 @@
       <div class="final-cta-bg"></div>
       <div class="container">
         <div class="final-cta-content animate-on-scroll">
-          <h2>Help us build this.</h2>
+          <h2>Ready to try it?</h2>
           <p>
-            Join the beta and shape LOCKEDIN before launch. Your feedback directly influences what we build next.
+            Free beta. No account needed. Just download via TestFlight and let me know what you think.
           </p>
           <a href="https://testflight.apple.com/join/91g4BD8A" class="hero-cta" target="_blank" rel="noopener">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-            Become a Beta Tester
+            Get the Beta
           </a>
-          <p class="waitlist-note">Free via TestFlight · iOS only · Limited spots</p>
+          <p class="waitlist-note">
+            Not ready yet? Just <a href="mailto:thelockedinapp@outlook.com?subject=Notify%20me%20at%20launch" style="color: var(--text-secondary); text-decoration: underline;">email me</a> and I'll ping you when we launch.
+          </p>
         </div>
       </div>
     </section>
@@ -1247,11 +1355,15 @@
           </span>
           LOCKEDIN
         </a>
-        <p>&copy; 2026 LOCKEDIN. All rights reserved.</p>
+        <p>&copy; 2026 LOCKEDIN</p>
+        <p class="footer-builder">Made by <a href="https://x.com/AchedPizza" target="_blank" rel="noopener">Dylan</a> in California</p>
       </div>
       <div class="footer-links">
-        <a href="#privacy">Privacy Policy</a>
-        <a href="mailto:thelockedinapp@outlook.com">Contact</a>
+        <a href="#privacy">Privacy</a>
+        <a href="https://x.com/AchedPizza" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-right: 6px;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>DM me
+        </a>
+        <a href="mailto:thelockedinapp@outlook.com">Email me</a>
       </div>
     </div>
   </footer>
