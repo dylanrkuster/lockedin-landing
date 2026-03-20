@@ -3,12 +3,119 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LOCKEDIN - Join the Beta</title>
-  <meta name="description" content="Be an early tester. LOCKEDIN treats screen time like a bank account. Earn minutes by moving, spend them on apps. Join the beta and help shape the app.">
+  <title>LOCKEDIN — Earn Screen Time Through Exercise | Block Apps Until You Work Out</title>
+  <meta name="description" content="LOCKEDIN blocks your apps at the system level until you exercise. Workouts and steps earn screen time. 4 difficulty levels with anti-cheat. No accounts, no servers. Free iOS beta.">
   <meta name="theme-color" content="#000000">
+  <link rel="canonical" href="https://getlockedin.dev/">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" href="icon.png">
   <link rel="apple-touch-icon" href="icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://getlockedin.dev/">
+  <meta property="og:title" content="LOCKEDIN — Earn Screen Time Through Exercise | Block Apps Until You Work Out">
+  <meta property="og:description" content="Screen time accountability app for iOS. Workouts and steps earn minutes, app usage spends them. System-level blocking when you hit zero. Free beta.">
+  <meta property="og:image" content="https://getlockedin.dev/icon.png">
+  <meta property="og:site_name" content="LOCKEDIN">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LOCKEDIN — Earn Screen Time Through Exercise">
+  <meta name="twitter:description" content="Block apps until you work out. Workouts and steps earn screen time. System-level iOS blocking. No accounts. Free beta.">
+  <meta name="twitter:image" content="https://getlockedin.dev/1.png">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "LOCKEDIN",
+    "operatingSystem": "iOS",
+    "applicationCategory": "HealthApplication",
+    "description": "Screen time accountability app that blocks your apps at the system level until you exercise. Workouts and steps earn screen time minutes. 4 difficulty levels with anti-cheat. No accounts, no servers — 100% local and private.",
+    "url": "https://getlockedin.dev/",
+    "downloadUrl": "https://testflight.apple.com/join/91g4BD8A",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "description": "Free beta via TestFlight"
+    },
+    "featureList": [
+      "System-level app blocking via Apple FamilyControls",
+      "Earn screen time through any Apple Health workout",
+      "Steps count as passive earning",
+      "4 difficulty levels with anti-cheat protection",
+      "Works with Apple Watch, Garmin, Whoop, Fitbit, Oura",
+      "No accounts required — 100% local data"
+    ],
+    "screenshot": "https://getlockedin.dev/1.png",
+    "creator": {
+      "@type": "Person",
+      "name": "Dylan"
+    }
+  }
+  </script>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does LOCKEDIN work with Apple Watch?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Any workout recorded on Apple Watch syncs to Apple Health, and LOCKEDIN reads directly from Apple Health. Runs, lifts, swims, cycling — any workout type counts toward earning screen time."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I cheat by turning off the app?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. LOCKEDIN uses Apple's FamilyControls framework to block apps at the system level. This means blocking persists even if the app is closed or the phone is restarted. Removing the app incurs a penalty, and difficulty downgrades come with consequences."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens when my screen time balance hits zero?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Your selected apps are blocked at the operating system level. No snooze button, no workaround. The only way to unlock them is to exercise — complete a workout or accumulate steps that sync to Apple Health."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is LOCKEDIN free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "LOCKEDIN is currently in free beta via Apple TestFlight. A Pro version with additional features is planned for the future."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does LOCKEDIN work with Garmin, Whoop, or Fitbit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. LOCKEDIN works with any fitness device or app that syncs workout data to Apple Health, including Garmin, Whoop, Fitbit, Oura, and many others."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my data private?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. LOCKEDIN is 100% local. No accounts, no servers, no data collection from app usage. All your health and screen time data stays on your device and is never transmitted."
+        }
+      }
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -837,6 +944,92 @@
       text-align: center;
     }
 
+    /* FAQ */
+    .faq {
+      padding: 120px 0;
+      position: relative;
+    }
+
+    .faq::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-subtle), transparent);
+    }
+
+    .faq-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-question {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 0;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    .faq-question:hover {
+      color: var(--medium);
+    }
+
+    .faq-question::after {
+      content: "+";
+      font-family: 'SF Mono', SFMono-Regular, Menlo, monospace;
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--text-tertiary);
+      transition: transform 0.3s ease, color 0.3s ease;
+      flex-shrink: 0;
+      margin-left: 16px;
+    }
+
+    .faq-item.open .faq-question::after {
+      content: "-";
+      color: var(--medium);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                  padding 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+    }
+
+    .faq-answer p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      padding-bottom: 24px;
+    }
+
     /* Privacy */
     .privacy {
       padding: 120px 0;
@@ -1060,6 +1253,7 @@
       <nav>
         <a href="#how">How It Works</a>
         <a href="#difficulty">Difficulty</a>
+        <a href="#faq">FAQ</a>
         <a href="#feedback">Get in Touch</a>
         <a href="https://testflight.apple.com/join/91g4BD8A" class="nav-cta" target="_blank" rel="noopener">Join Beta</a>
       </nav>
@@ -1068,7 +1262,7 @@
 
   <main>
     <!-- Hero -->
-    <section class="hero">
+    <section class="hero" aria-label="LOCKEDIN — screen time accountability app that blocks apps until you exercise">
       <div class="hero-bg"></div>
       <div class="hero-content">
         <div class="hero-text">
@@ -1099,7 +1293,7 @@
           <div class="phone-frame">
             <div class="phone-notch"></div>
             <div class="phone-screen">
-              <img src="1.png" alt="LOCKEDIN app showing screen time balance">
+              <img src="1.png" alt="LOCKEDIN screen time accountability app — iOS dashboard showing earned screen time balance from workouts and steps">
             </div>
           </div>
         </div>
@@ -1107,7 +1301,7 @@
     </section>
 
     <!-- What Makes It Different -->
-    <section class="difference">
+    <section class="difference" aria-label="Why LOCKEDIN is different from other screen time limit apps — system-level blocking you cannot bypass">
       <div class="container">
         <div class="difference-content animate-on-scroll">
           <p class="section-label">The Difference</p>
@@ -1147,7 +1341,7 @@
     </section>
 
     <!-- How It Works -->
-    <section class="how-it-works" id="how">
+    <section class="how-it-works" id="how" aria-label="How LOCKEDIN works — pick apps to block, workout to earn screen time, spend balance on app usage">
       <div class="container">
         <div class="section-header animate-on-scroll">
           <p class="section-label">How It Works</p>
@@ -1174,7 +1368,7 @@
     </section>
 
     <!-- Earn Section -->
-    <section class="earn">
+    <section class="earn" aria-label="Earn screen time through exercise — workouts, steps, Apple Watch, Garmin, Whoop, Fitbit">
       <div class="container">
         <div class="earn-content">
           <div class="earn-text animate-on-scroll">
@@ -1210,7 +1404,7 @@
             <div class="phone-frame">
               <div class="phone-notch"></div>
               <div class="phone-screen">
-                <img src="4.png" alt="LOCKEDIN activity tracking">
+                <img src="4.png" alt="LOCKEDIN fitness tracking — earn screen time through exercise, workouts, and daily steps synced from Apple Health">
               </div>
             </div>
           </div>
@@ -1219,7 +1413,7 @@
     </section>
 
     <!-- Difficulty -->
-    <section class="difficulty" id="difficulty">
+    <section class="difficulty" id="difficulty" aria-label="4 difficulty levels — Easy, Medium, Hard, Extreme — with anti-cheat protection">
       <div class="container">
         <div class="section-header animate-on-scroll">
           <p class="section-label">Difficulty</p>
@@ -1298,6 +1492,56 @@
       </div>
     </section>
 
+    <!-- FAQ -->
+    <section class="faq" id="faq" aria-label="Frequently asked questions about LOCKEDIN screen time accountability app">
+      <div class="container">
+        <div class="faq-content">
+          <div class="section-header animate-on-scroll">
+            <p class="section-label">FAQ</p>
+            <h2>Frequently Asked Questions</h2>
+          </div>
+          <div class="faq-list">
+            <div class="faq-item animate-on-scroll">
+              <button class="faq-question" aria-expanded="false">Does LOCKEDIN work with Apple Watch?</button>
+              <div class="faq-answer">
+                <p>Yes. Any workout recorded on Apple Watch syncs to Apple Health, and LOCKEDIN reads directly from Apple Health. Runs, lifts, swims, cycling — any workout type counts toward earning screen time.</p>
+              </div>
+            </div>
+            <div class="faq-item animate-on-scroll">
+              <button class="faq-question" aria-expanded="false">Can I cheat by turning off the app?</button>
+              <div class="faq-answer">
+                <p>No. LOCKEDIN uses Apple's FamilyControls framework to block apps at the system level. Blocking persists even if the app is closed or the phone is restarted. Removing the app incurs a penalty, and difficulty downgrades come with consequences.</p>
+              </div>
+            </div>
+            <div class="faq-item animate-on-scroll">
+              <button class="faq-question" aria-expanded="false">What happens when my balance hits zero?</button>
+              <div class="faq-answer">
+                <p>Your selected apps are blocked at the operating system level. No snooze button, no workaround. The only way to unlock them is to exercise — complete a workout or accumulate steps that sync to Apple Health.</p>
+              </div>
+            </div>
+            <div class="faq-item animate-on-scroll">
+              <button class="faq-question" aria-expanded="false">Is LOCKEDIN free?</button>
+              <div class="faq-answer">
+                <p>LOCKEDIN is currently in free beta via Apple TestFlight. No account needed, no credit card. A Pro version with additional features is planned for the future.</p>
+              </div>
+            </div>
+            <div class="faq-item animate-on-scroll">
+              <button class="faq-question" aria-expanded="false">Does it work with Garmin, Whoop, or Fitbit?</button>
+              <div class="faq-answer">
+                <p>Yes. LOCKEDIN works with any fitness device or app that syncs workout data to Apple Health — including Garmin, Whoop, Fitbit, Oura, and many others. If it shows up in Apple Health, LOCKEDIN can read it.</p>
+              </div>
+            </div>
+            <div class="faq-item animate-on-scroll">
+              <button class="faq-question" aria-expanded="false">Is my data private?</button>
+              <div class="faq-answer">
+                <p>100%. LOCKEDIN runs entirely on your device. No accounts, no servers, no data ever leaves your phone. Your health and screen time data is never transmitted anywhere.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Privacy -->
     <section class="privacy" id="privacy">
       <div class="container">
@@ -1305,24 +1549,26 @@
           <p class="section-label">Legal</p>
           <h2>Privacy Policy</h2>
           <p class="privacy-intro">
-            Your data stays on your device. No accounts. No tracking. No BS.
+            Your data stays on your device. No accounts. No data collection from app usage.
           </p>
 
           <h3>Data We Access</h3>
           <p>LOCKEDIN requires access to:</p>
           <ul>
             <li><strong>Apple Health:</strong> We read workout duration and step count to calculate earned screen time.</li>
-            <li><strong>Screen Time:</strong> Required to block selected apps at the system level.</li>
+            <li><strong>Screen Time:</strong> Required to block selected apps at the system level via Apple FamilyControls.</li>
           </ul>
 
           <h3>Data We Collect</h3>
-          <p>None. We do not collect, transmit, or store any of your data on external servers.</p>
+          <p>The LOCKEDIN app does not collect, transmit, or store any of your personal data on external servers.</p>
           <ul>
             <li>No accounts required</li>
-            <li>No analytics or tracking</li>
             <li>No advertising</li>
             <li>No data sharing</li>
           </ul>
+
+          <h3>Website Analytics</h3>
+          <p>This website uses Google Analytics to understand how visitors find LOCKEDIN. This collects anonymous, aggregate page-visit data only. No personal data is collected from your use of the app itself.</p>
 
           <h3>Data Storage</h3>
           <p>All app data is stored locally on your device and never leaves it.</p>
@@ -1330,7 +1576,7 @@
           <h3>Contact</h3>
           <p>Questions? <a href="mailto:thelockedinapp@outlook.com" style="color: var(--text-primary); text-decoration: underline;">thelockedinapp@outlook.com</a></p>
 
-          <p class="privacy-date">Last Updated: January 2026</p>
+          <p class="privacy-date">Last Updated: July 2026</p>
         </div>
       </div>
     </section>
@@ -1376,6 +1622,24 @@
 
     document.querySelectorAll('.animate-on-scroll').forEach(el => {
       observer.observe(el);
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const isOpen = item.classList.contains('open');
+        // Close all
+        document.querySelectorAll('.faq-item.open').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+        // Toggle current
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
     });
 
     // Track beta signup clicks
