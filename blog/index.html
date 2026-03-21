@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LOCKEDIN Blog — Screen Time, Exercise, and Phone Addiction</title>
+  <meta name="description" content="Articles about screen time, phone addiction, exercise habits, and how to take back control of your attention. Data-driven, honest, no fluff.">
+  <meta name="theme-color" content="#000000">
+  <link rel="canonical" href="https://getlockedin.dev/blog/">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" href="../icon.png">
+  <link rel="apple-touch-icon" href="../icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://getlockedin.dev/blog/">
+  <meta property="og:title" content="LOCKEDIN Blog — Screen Time, Exercise, and Phone Addiction">
+  <meta property="og:description" content="Articles about screen time, phone addiction, exercise habits, and how to take back control of your attention.">
+  <meta property="og:image" content="https://getlockedin.dev/icon.png">
+  <meta property="og:site_name" content="LOCKEDIN">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="LOCKEDIN Blog — Screen Time, Exercise, and Phone Addiction">
+  <meta name="twitter:description" content="Data-driven articles about screen time, phone addiction, and what actually works to reduce it.">
+  <meta name="twitter:image" content="https://getlockedin.dev/icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #000000;
+      --surface: #0a0a0a;
+      --surface-elevated: #111111;
+      --border: #1a1a1a;
+      --border-subtle: #222222;
+      --text-primary: #FFFFFF;
+      --text-secondary: #888888;
+      --text-tertiary: #555555;
+      --easy: #22C55E;
+      --medium: #EAB308;
+      --hard: #F97316;
+      --extreme: #DC2626;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 20px 0;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-decoration: none;
+      color: var(--text-primary);
+    }
+
+    .logo-icon {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .logo-bar {
+      width: 4px;
+      height: 18px;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover .logo-bar:nth-child(1) { transform: scaleY(0.6); }
+    .logo:hover .logo-bar:nth-child(2) { transform: scaleY(0.8); transition-delay: 0.05s; }
+    .logo:hover .logo-bar:nth-child(3) { transform: scaleY(0.9); transition-delay: 0.1s; }
+    .logo:hover .logo-bar:nth-child(4) { transform: scaleY(1.1); transition-delay: 0.15s; }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--text-primary);
+    }
+
+    .nav-cta {
+      background: var(--text-primary);
+      color: var(--bg) !important;
+      padding: 10px 20px;
+      font-weight: 600;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+    }
+
+    /* Blog Index Layout */
+    .blog-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 140px 24px 80px;
+    }
+
+    .blog-header {
+      margin-bottom: 64px;
+    }
+
+    .blog-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .blog-header h1 {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin-bottom: 16px;
+    }
+
+    .blog-header p {
+      font-size: 18px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* Post List */
+    .post-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .post-item {
+      display: block;
+      padding: 40px 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .post-item:first-child {
+      padding-top: 0;
+    }
+
+    .post-item:hover {
+      transform: translateX(8px);
+    }
+
+    .post-date {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .post-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      margin-left: 12px;
+      vertical-align: middle;
+    }
+
+    .tag-data {
+      background: rgba(234, 179, 8, 0.15);
+      color: var(--medium);
+    }
+
+    .tag-guide {
+      background: rgba(34, 197, 94, 0.15);
+      color: var(--easy);
+    }
+
+    .tag-comparison {
+      background: rgba(249, 115, 22, 0.15);
+      color: var(--hard);
+    }
+
+    .post-title {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+      line-height: 1.3;
+      transition: color 0.2s;
+    }
+
+    .post-item:hover .post-title {
+      color: var(--medium);
+    }
+
+    .post-excerpt {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .post-read-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-tertiary);
+      transition: color 0.2s;
+    }
+
+    .post-item:hover .post-read-more {
+      color: var(--text-primary);
+    }
+
+    .post-read-more svg {
+      width: 14px;
+      height: 14px;
+      transition: transform 0.2s;
+    }
+
+    .post-item:hover .post-read-more svg {
+      transform: translateX(4px);
+    }
+
+    /* Footer */
+    footer {
+      padding: 64px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-left .logo {
+      margin-bottom: 8px;
+    }
+
+    .footer-left p {
+      font-size: 13px;
+      color: var(--text-tertiary);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--text-primary);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .blog-container {
+        padding-top: 120px;
+      }
+
+      nav {
+        gap: 16px;
+      }
+
+      .post-title {
+        font-size: 20px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .header-content {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      nav {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        gap: 32px;
+        text-align: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DXX65WJFLV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DXX65WJFLV');
+  </script>
+</head>
+<body>
+
+  <header>
+    <div class="header-content">
+      <a href="https://getlockedin.dev" class="logo">
+        <span class="logo-icon">
+          <span class="logo-bar" style="background: #444"></span>
+          <span class="logo-bar" style="background: #777"></span>
+          <span class="logo-bar" style="background: #aaa"></span>
+          <span class="logo-bar" style="background: #fff"></span>
+        </span>
+        LOCKEDIN
+      </a>
+      <nav>
+        <a href="https://getlockedin.dev">Home</a>
+        <a href="https://getlockedin.dev#how">How It Works</a>
+        <a href="https://getlockedin.dev#faq">FAQ</a>
+        <a href="https://testflight.apple.com/join/91g4BD8A" class="nav-cta" target="_blank" rel="noopener">Join Beta</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="blog-container">
+
+      <div class="blog-header">
+        <p class="blog-label">Blog</p>
+        <h1>Screen Time, Exercise, and Taking Your Phone Back</h1>
+        <p>Data-driven articles about phone addiction, screen time research, and what actually works. No fluff. No generic listicles. Just facts and honest analysis.</p>
+      </div>
+
+      <div class="post-list">
+
+        <a href="/blog/screen-time-statistics-2026.html" class="post-item">
+          <div class="post-date">March 21, 2026 <span class="post-tag tag-data">Data</span></div>
+          <div class="post-title">Phone Addiction by the Numbers: Screen Time Statistics That Will Shock You [2026]</div>
+          <p class="post-excerpt">The average person spends 6 hours 54 minutes a day on screens — 42% of waking life. Here are the latest statistics on screen time by age, country, health impact, economic cost, and the exercise correlation.</p>
+          <span class="post-read-more">Read article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </a>
+
+        <a href="/blog/how-to-reduce-screen-time.html" class="post-item">
+          <div class="post-date">March 21, 2026 <span class="post-tag tag-guide">Guide</span></div>
+          <div class="post-title">How to Actually Reduce Screen Time (Without Relying on Willpower)</div>
+          <p class="post-excerpt">Why willpower fails at reducing screen time, and the 5 evidence-based strategies that actually work: environment design, app blocking, accountability, exercise trade-offs, and phone-free zones.</p>
+          <span class="post-read-more">Read article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </a>
+
+        <a href="/blog/apps-that-block-phone-until-exercise.html" class="post-item">
+          <div class="post-date">March 20, 2026 <span class="post-tag tag-comparison">Comparison</span></div>
+          <div class="post-title">7 Apps That Block Your Phone Until You Exercise (2026 Comparison)</div>
+          <p class="post-excerpt">Comparing LOCKEDIN, Push Up Time, Earn It, SweatPass, Achieve!, Stryde, and Fitblock — blocking methods, exercise types, pricing, privacy, and honest pros and cons for each.</p>
+          <span class="post-read-more">Read article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </a>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <a href="https://getlockedin.dev" class="logo">
+          <span class="logo-icon">
+            <span class="logo-bar" style="background: #444"></span>
+            <span class="logo-bar" style="background: #777"></span>
+            <span class="logo-bar" style="background: #aaa"></span>
+            <span class="logo-bar" style="background: #fff"></span>
+          </span>
+          LOCKEDIN
+        </a>
+        <p>&copy; 2026 LOCKEDIN</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://getlockedin.dev">Home</a>
+        <a href="https://getlockedin.dev#privacy">Privacy</a>
+        <a href="mailto:thelockedinapp@outlook.com">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
