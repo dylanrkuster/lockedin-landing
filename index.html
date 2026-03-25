@@ -33,7 +33,7 @@
     "name": "LOCKEDIN",
     "operatingSystem": "iOS",
     "applicationCategory": "HealthApplication",
-    "description": "Screen time accountability app that blocks your apps at the system level until you exercise. Workouts and steps earn screen time minutes. 4 difficulty levels with anti-cheat. No accounts, no servers. 100% local and private.",
+    "description": "Screen time accountability app that blocks your apps at the system level until you exercise. Workouts and steps earn screen time minutes. 4 difficulty levels (2 free, 2 Pro) with anti-cheat. No accounts, no servers. 100% local and private.",
     "url": "https://getlockedin.dev/",
     "downloadUrl": "https://apps.apple.com/app/lockedin/id6757321153",
     "offers": [
@@ -49,7 +49,7 @@
         "price": "1.99",
         "priceCurrency": "USD",
         "availability": "https://schema.org/InStock",
-        "description": "Pro: unlimited apps, $1.99/month or $9.99/year"
+        "description": "Pro: unlimited apps + Hard/Extreme difficulties, $1.99/month or $9.99/year"
       }
     ],
     "featureList": [
@@ -103,7 +103,7 @@
         "name": "Is LOCKEDIN free?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "LOCKEDIN is free to download with up to 3 blocked apps. Pro unlocks unlimited apps for $1.99/month or $9.99/year. No trial required. The free tier is fully functional."
+          "text": "LOCKEDIN is free to download with up to 3 blocked apps on Easy or Medium difficulty. Pro unlocks unlimited apps plus Hard and Extreme difficulties for $1.99/month or $9.99/year. No trial required. The free tier is fully functional."
         }
       },
       {
@@ -908,6 +908,18 @@
     .difficulty-name.hard { color: var(--hard); }
     .difficulty-name.extreme { color: var(--extreme); }
 
+    .pro-badge-inline {
+      font-size: 0.55em;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      background: var(--accent, #4ade80);
+      color: var(--bg);
+      padding: 2px 6px;
+      border-radius: 3px;
+      vertical-align: middle;
+      margin-left: 0.4em;
+    }
+
     .difficulty-ratio {
       font-family: 'SF Mono', SFMono-Regular, Menlo, monospace;
       font-size: 12px;
@@ -1392,7 +1404,7 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
             Download Free
           </a>
-          <p class="waitlist-note">Free with 3 apps · Pro unlocks unlimited for $1.99/mo</p>
+          <p class="waitlist-note">Free with 3 apps · Pro unlocks unlimited apps + Hard/Extreme for $1.99/mo</p>
         </div>
         <div class="hero-phone-container">
           <div class="phone-glow"></div>
@@ -1550,8 +1562,8 @@
               <div class="bar"></div>
             </div>
             <div class="difficulty-name easy">EASY</div>
-            <div class="difficulty-ratio">1 min workout = 2 min screen</div>
-            <div class="difficulty-ratio">1k steps = 10 min screen</div>
+            <div class="difficulty-ratio">1 min workout = 1 min screen</div>
+            <div class="difficulty-ratio">1k steps = 4 min screen</div>
             <div class="difficulty-desc">"I'm just getting started"</div>
           </div>
           <div class="difficulty-card animate-on-scroll">
@@ -1562,9 +1574,9 @@
               <div class="bar"></div>
             </div>
             <div class="difficulty-name medium">MEDIUM</div>
-            <div class="difficulty-ratio">1 min workout = 1 min screen</div>
-            <div class="difficulty-ratio">1k steps = 5 min screen</div>
-            <div class="difficulty-desc">"Fair trade"</div>
+            <div class="difficulty-ratio">2 min workout = 1 min screen</div>
+            <div class="difficulty-ratio">1k steps = 3 min screen</div>
+            <div class="difficulty-desc">"I'm serious about this"</div>
           </div>
           <div class="difficulty-card animate-on-scroll">
             <div class="difficulty-bars">
@@ -1573,10 +1585,10 @@
               <div class="bar filled hard"></div>
               <div class="bar"></div>
             </div>
-            <div class="difficulty-name hard">HARD</div>
-            <div class="difficulty-ratio">2 min workout = 1 min screen</div>
-            <div class="difficulty-ratio">1k steps = 3 min screen</div>
-            <div class="difficulty-desc">"I'm serious about this"</div>
+            <div class="difficulty-name hard">HARD <span class="pro-badge-inline">PRO</span></div>
+            <div class="difficulty-ratio">3 min workout = 1 min screen</div>
+            <div class="difficulty-ratio">1k steps = 2 min screen</div>
+            <div class="difficulty-desc">"No excuses"</div>
           </div>
           <div class="difficulty-card animate-on-scroll">
             <div class="difficulty-bars">
@@ -1585,8 +1597,8 @@
               <div class="bar filled extreme"></div>
               <div class="bar filled extreme"></div>
             </div>
-            <div class="difficulty-name extreme">EXTREME</div>
-            <div class="difficulty-ratio">3 min workout = 1 min screen</div>
+            <div class="difficulty-name extreme">EXTREME <span class="pro-badge-inline">PRO</span></div>
+            <div class="difficulty-ratio">4 min workout = 1 min screen</div>
             <div class="difficulty-ratio">1k steps = 1 min screen</div>
             <div class="difficulty-desc">"No excuses. No mercy."</div>
           </div>
@@ -1605,7 +1617,7 @@
             <div style="color: var(--text-secondary); margin: 0.5rem 0 1.5rem; font-size: 0.9rem;">forever</div>
             <ul style="list-style: none; padding: 0; text-align: left; font-size: 0.95rem; line-height: 2;">
               <li>✓ Block up to 3 apps</li>
-              <li>✓ All 4 difficulty levels</li>
+              <li>✓ Easy + Medium difficulty</li>
               <li>✓ Steps + any workout</li>
               <li>✓ Widget + shield</li>
               <li>✓ 100% private</li>
@@ -1619,6 +1631,7 @@
             <div style="color: var(--text-secondary); margin: 0 0 1.5rem; font-size: 0.8rem;">or $9.99/year (save 58%)</div>
             <ul style="list-style: none; padding: 0; text-align: left; font-size: 0.95rem; line-height: 2;">
               <li>✓ <strong>Unlimited</strong> blocked apps</li>
+              <li>✓ Hard + Extreme difficulties</li>
               <li>✓ Everything in Free</li>
               <li>✓ Support development</li>
             </ul>
@@ -1679,7 +1692,7 @@
             <div class="faq-item animate-on-scroll">
               <button class="faq-question" aria-expanded="false">Is LOCKEDIN free?</button>
               <div class="faq-answer">
-                <p>LOCKEDIN is free to download with up to 3 blocked apps. All features work, no limits on difficulty, steps, or workouts. Pro unlocks unlimited blocked apps for $1.99/month or $9.99/year. No account needed, no credit card required for the free tier.</p>
+                <p>LOCKEDIN is free to download with up to 3 blocked apps on Easy or Medium difficulty. Pro unlocks unlimited apps plus Hard and Extreme difficulties for $1.99/month or $9.99/year. No account needed, no credit card required for the free tier.</p>
               </div>
             </div>
             <div class="faq-item animate-on-scroll">
