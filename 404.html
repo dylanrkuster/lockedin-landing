@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LOCKEDIN</title>
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/icon.png">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #000;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+    }
+    .logo {
+      width: 88px; height: 88px; margin-bottom: 32px;
+      border-radius: 22px;
+      background-image: url('/icon.png');
+      background-size: cover;
+    }
+    h1 {
+      font-size: 28px; font-weight: 700; letter-spacing: -0.5px;
+      margin-bottom: 12px; max-width: 480px;
+    }
+    p.lede { font-size: 16px; color: #aaa; margin-bottom: 40px; max-width: 480px; line-height: 1.5; }
+    .code-box {
+      font-family: "SF Mono", Menlo, monospace;
+      font-size: 28px; letter-spacing: 4px; font-weight: 700;
+      color: #EAB308; background: #111; border: 1px solid #222;
+      padding: 18px 32px; margin-bottom: 32px; min-width: 220px;
+    }
+    .cta {
+      display: inline-block; background: #EAB308; color: #000;
+      font-weight: 700; font-size: 14px; letter-spacing: 2px;
+      padding: 18px 32px; text-decoration: none; text-transform: uppercase;
+    }
+    .cta:hover { opacity: 0.85; }
+    .small { margin-top: 32px; font-size: 12px; color: #555; max-width: 360px; line-height: 1.6; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="logo"></div>
+
+  <!-- Invite path -->
+  <div id="invite" class="hidden">
+    <h1>You've been invited to LOCKEDIN.</h1>
+    <p class="lede">
+      The discipline app that earns you screen time through exercise. Install with this code
+      and you both get a <b style="color:#fff">free month of Pro.</b>
+    </p>
+    <div class="code-box" id="code">······</div>
+    <a class="cta" href="https://apps.apple.com/app/id6757321153">Open in App Store</a>
+    <p class="small">
+      On iPhone, this link opens the LOCKEDIN app directly if installed.
+    </p>
+  </div>
+
+  <!-- Generic 404 path -->
+  <div id="notfound">
+    <h1>Page not found.</h1>
+    <p class="lede">Head back to <a href="/" style="color:#EAB308">getlockedin.dev</a>.</p>
+  </div>
+
+  <script>
+    var path = location.pathname.split('/').filter(Boolean);
+    if (path.length === 2 && path[0] === 'i') {
+      var code = path[1].toUpperCase();
+      if (/^[A-Z0-9]{6}$/.test(code)) {
+        document.getElementById('code').textContent = code;
+        document.getElementById('invite').classList.remove('hidden');
+        document.getElementById('notfound').classList.add('hidden');
+        try { localStorage.setItem('lockedin_invite_code', code); } catch (e) {}
+      }
+    }
+  </script>
+</body>
+</html>

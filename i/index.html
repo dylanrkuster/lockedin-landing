@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LOCKEDIN — Invite</title>
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/icon.png">
+  <meta property="og:title" content="LOCKEDIN — Earn screen time through exercise">
+  <meta property="og:description" content="Your friend invited you to LOCKEDIN. Install the app and you both get a free month of Pro.">
+  <meta property="og:image" content="https://getlockedin.dev/icon.png">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #000;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+    }
+    .logo {
+      width: 88px;
+      height: 88px;
+      margin-bottom: 32px;
+      border-radius: 22px;
+      background-image: url('/icon.png');
+      background-size: cover;
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+      max-width: 480px;
+    }
+    p.lede {
+      font-size: 16px;
+      color: #aaa;
+      margin-bottom: 40px;
+      max-width: 480px;
+      line-height: 1.5;
+    }
+    .code-box {
+      font-family: "SF Mono", Menlo, monospace;
+      font-size: 28px;
+      letter-spacing: 4px;
+      font-weight: 700;
+      color: #EAB308;
+      background: #111;
+      border: 1px solid #222;
+      padding: 18px 32px;
+      margin-bottom: 32px;
+      min-width: 220px;
+    }
+    .cta {
+      display: inline-block;
+      background: #EAB308;
+      color: #000;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 2px;
+      padding: 18px 32px;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: opacity 0.15s;
+    }
+    .cta:hover { opacity: 0.85; }
+    .small {
+      margin-top: 32px;
+      font-size: 12px;
+      color: #555;
+      max-width: 360px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo"></div>
+  <h1>You've been invited to LOCKEDIN.</h1>
+  <p class="lede">
+    The discipline app that earns you screen time through exercise. Install with this code
+    and you both get a <b style="color:#fff">free month of Pro.</b>
+  </p>
+  <div class="code-box" id="code">······</div>
+  <a class="cta" id="cta" href="https://apps.apple.com/app/id6757321153">Open in App Store</a>
+  <p class="small">
+    On iPhone, this link opens the LOCKEDIN app directly if installed. Otherwise it sends you
+    to the App Store and your invite code is applied during onboarding.
+  </p>
+
+  <script>
+    // Pull the code from the path: /i/{CODE}
+    var path = location.pathname.split('/').filter(Boolean);
+    var code = (path[1] || '').toUpperCase();
+    if (code && /^[A-Z0-9]{6}$/.test(code)) {
+      document.getElementById('code').textContent = code;
+      // Pre-stash on localStorage as a clipboard-deferred-deep-link fallback.
+      try { localStorage.setItem('lockedin_invite_code', code); } catch (e) {}
+    } else {
+      document.getElementById('code').textContent = 'invalid';
+    }
+  </script>
+</body>
+</html>
