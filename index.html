@@ -230,8 +230,8 @@
     @media(prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none}}
 
     @media(max-width:780px){
-      section{padding:64px 0}
-      .hero{padding:54px 0 24px}
+      section{padding:64px clamp(28px,6vw,48px)}
+      .hero{padding:54px clamp(28px,6vw,48px) 24px}
       .hero h1{font-size:clamp(40px,11vw,56px)}
       .hero h1 .ofl{display:block}
       .hero .sub{font-size:17px}
